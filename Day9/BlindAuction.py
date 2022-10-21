@@ -1,5 +1,7 @@
 from os import system
+from BlindAuctionArt import logo
 
+print(logo)
 print("Welcome to the secret auction program.")
 finish = False
 bidders = {}
