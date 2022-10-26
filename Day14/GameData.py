@@ -1,4 +1,4 @@
-data = [
+DATA = [
     {
         'name': 'Instagram',
         'follower_count': 346,
