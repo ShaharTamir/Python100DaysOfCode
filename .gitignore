@@ -1,3 +1,5 @@
 .idea/
 **.pyc
 **.webp
+Day24/MailMerge/Output/ReadyToSend/*.txt
+Day24/UpgradedSnake/*.txt
