@@ -27,7 +27,9 @@ while len(states_found) < total_states:
             state_data = states_db[states_db.state == user_guess]
             new_state = State(state_data.x, state_data.y, user_guess)  # state_data.state.item()
             states_found.append(user_guess)
-            all_states.remove(user_guess)
+            missing_states = [state for state in all_states if state not in states_found]
+            # all_states.remove(user_guess) # down for list comprehension
 
-pandas.DataFrame({"states": all_states}).to_csv("states_to_learn.csv")
+# pandas.DataFrame({"states": all_states}).to_csv("states_to_learn.csv") # down for list comprehension
+pandas.DataFrame({"states": missing_states}).to_csv("states_to_learn.csv")
 
