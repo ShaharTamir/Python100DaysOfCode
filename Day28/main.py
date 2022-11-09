@@ -1,6 +1,5 @@
 from tkinter import *
 import math
-from time import sleep
 # ---------------------------- CONSTANTS ------------------------------- #
 PINK = "#e2979c"
 RED = "#e7305b"
