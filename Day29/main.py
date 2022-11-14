@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import messagebox
 import password_generator
+import json
 
 COLOR = "white"
 CANVAS_HEIGHT = 200
@@ -27,21 +28,46 @@ def clear_entries():
     web_entry.focus()
 
 
+def validate_data(*args):
+    invalid = ""
+    for arg in args:
+        if arg == invalid:
+            return False
+    return True
+
+
+def verify_before_adding_data(website, email, password):
+    summary_str = f"These are the details entered: \n\
+Email: {email}\nPassword: {password}\nIs it ok to save?"
+    is_ok = messagebox.askokcancel(title=website, message=summary_str)
+    return is_ok
+
+
 def save_password():
     website = web_entry.get()
-    user_name = user_name_entry.get()
+    email = user_name_entry.get()
     password = password_entry.get()
-    invalid = ""
 
-    if website is not invalid and user_name is not invalid and \
-       password is not invalid:
-        summary_str = f"These are the details entered: \n\
-Email: {user_name}\nPassword: {password}\nIs it ok to save?"
-        is_ok = messagebox.askokcancel(title=website, message=summary_str)
-        if is_ok:
-            file_str = f" {website}\t|  {user_name}\t| {password}\n"
-            with open("saved_passwords.txt", "a") as pass_file:
-                pass_file.write(file_str)
+    if validate_data(website, email, password):
+        new_data = {
+            website: {
+                "email": email,
+                "password": password,
+            }
+        }
+
+        if verify_before_adding_data(website, email, password):
+            all_data = None
+            try:
+                with open("saved_passwords.json", "r") as pass_file:
+                    all_data = json.load(pass_file)
+                    all_data.update(new_data)
+            except FileNotFoundError:
+                all_data = new_data
+            finally:
+                with open("saved_passwords.json", "w") as pass_file:
+                    json.dump(all_data, pass_file, indent=4)
+
             clear_entries()
 
     else:
@@ -49,7 +75,26 @@ Email: {user_name}\nPassword: {password}\nIs it ok to save?"
         messagebox.showerror(message=error_string)
 
 
+# ------------------------- SEARCH PASSWORD --------------------------- #
+def search_password():
+    website = web_entry.get()
+
+    if validate_data(website):
+        try:
+            with open("saved_passwords.json", "r") as pass_file:
+                data = json.load(pass_file)
+        except FileNotFoundError:
+            messagebox.showerror(title="Error", message="No data file found!")
+        else:
+            if website in data:
+                web_data = data[website]
+                info_str = f"Email: {web_data['email']}\nPassword: {web_data['password']}"
+                messagebox.showinfo(message=info_str, title=website)
+            else:
+                messagebox.showerror(title="Error", message="Website not found!")
+
 # ---------------------------- UI SETUP ------------------------------- #
+
 
 window = Tk()
 window.config(pady=20, padx=20, background=COLOR)
@@ -70,14 +115,16 @@ error_label = Label(text="", bg=COLOR, fg="red", font=("ariel", 10, "bold"))
 error_label.grid(row=5, column=1, columnspan=2)
 
 # Entries
-web_entry = Entry(width=LONG_WIDTH)
-web_entry.grid(row=1, column=1, columnspan=2)
+web_entry = Entry(width=23)
+web_entry.grid(row=1, column=1, columnspan=1)
 user_name_entry = Entry(width=LONG_WIDTH)
 user_name_entry.grid(row=2, column=1, columnspan=2)
 password_entry = Entry(width=23)
 password_entry.grid(row=3, column=1)
 
 # Buttons
+search_button = Button(text="Search", width=15, padx=1, command=search_password)
+search_button.grid(row=1, column=2, sticky=W)
 gen_password_button = Button(text="Generate Password", padx=1, command=gen_password)
 gen_password_button.grid(row=3, column=2, sticky=W)
 add_button = Button(text="Add", width=LONG_WIDTH - 2, command=save_password)

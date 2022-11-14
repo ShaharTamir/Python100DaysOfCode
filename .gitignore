@@ -10,4 +10,6 @@ Day24/UpgradedSnake/*.txt
 Day25/testing_panda/output.csv
 Day25/testing_panda/squirrel_data.csv
 Day25/us-states-game-start/states_to_learn.csv
-Day29/saved_passwords.txt
+Day29/saved_passwords.json
+Day31/words_to_learn.csv
+Day31/spanish_freq_list.json
