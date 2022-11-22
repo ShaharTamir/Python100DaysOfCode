@@ -1,10 +1,11 @@
 import pandas
+import os
 import datetime as dt
 import smtplib
 from random import choice
 
 MY_EMAIL = "shahar1360@gmail.com"
-APP_PASSWORD = # TODO: python_gmail_app_password
+APP_PASSWORD = os.environ.get("PY_GMAIL_PASS")
 LETTERS = ["letter1.txt", "letter2.txt", "letter3.txt"]
 
 

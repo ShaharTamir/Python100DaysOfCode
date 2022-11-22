@@ -1,10 +1,11 @@
 import smtplib
+import os
 import datetime as dt
 from random import choice
 
 SUNDAY = 6
 MY_EMAIL = "shahar1360@gmail.com"
-APP_PASSWORD = # TODO: python_gmail_app_password
+APP_PASSWORD = os.environ.get("PY_GMAIL_PASS")
 TO_EMAIL = "shahar.tamir@infinitylabs.co.il"
 SUBJECT = "Weekly motivational quote"
 
