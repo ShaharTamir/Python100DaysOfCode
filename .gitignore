@@ -1,6 +1,7 @@
 .idea/
 **.pyc
 **.webp
+**.cache
 
 **/MailMerge/Output/ReadyToSend/*.txt
 **/UpgradedSnake/*.txt
@@ -10,3 +11,4 @@
 **/saved_passwords.json
 **/words_to_learn.csv
 **/spanish_freq_list.json
+
