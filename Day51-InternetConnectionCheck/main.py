@@ -4,6 +4,7 @@ from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
 from time import sleep
 
+TIMEOUT = 20
 chrome_driver_path = "/home/shahar/Downloads/installs/chromedriver_linux64/chromedriver"
 driver = webdriver.Chrome(service=Service(chrome_driver_path))
 
@@ -20,7 +21,7 @@ except NoSuchElementException:
     exit()
 
 attempts = 0
-while not finished and attempts < 5:
+while not finished and attempts < TIMEOUT:
     sleep(3)
     attempts += 1
     try:
@@ -30,7 +31,7 @@ while not finished and attempts < 5:
         print("not yet found")
 
 
-if attempts is 5:
+if attempts == TIMEOUT:
     print("not found.")
     exit()
 
