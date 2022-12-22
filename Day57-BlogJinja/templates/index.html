@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>
+        Python Blog
+    </title>
+    <link rel="stylesheet" href="static/index.css">
+</head>
+
+<body>
+    <div class="top">
+        <div class="title">
+            Blog
+        </div>
+    </div>
+    <div class="content">
+        {% for i in range(num_posts) %}
+        <div class="card">
+            <h1>{{ blog_posts[i].title }}</h1>
+            <h2>{{ blog_posts[i].prefix }}</h2>
+            <a href="{{ url_for('get_blog', num=i) }}">Read</a>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+<footer>
+    Copyrights {{ year }} Shahar Tamir
+</footer>
+</html>

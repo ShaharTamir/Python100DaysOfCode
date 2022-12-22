@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>
+        Python Blog
+    </title>
+    <link rel="stylesheet" href="/static/index.css">
+</head>
+<body>
+    <div class="top">
+        <div class="title">
+            Blog
+        </div>
+    </div>
+    <div class="content">
+        <div class="card">
+            <h1>{{ post.title }}</h1>
+            <h2>{{ post.prefix }}</h2>
+            <p>{{ post.content }}</p>
+        </div>
+    </div>
+</body>
+<footer>
+    Copyrights {{ year }} Shahar Tamir
+</footer>
+</html>
