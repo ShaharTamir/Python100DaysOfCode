@@ -6,7 +6,7 @@ body {
     font-weight: 400;
 }
 
-h1 {
+h1, h2, h5 {
     font-family: 'Montserrat', sans-serif;
     font-size: 3rem;
     line-height: 1.5;
@@ -14,16 +14,11 @@ h1 {
 }
 
 h2 {
-    font-family: 'Montserrat', sans-serif;
     font-size: 1.5rem;
-    line-height: 1.5;
-    font-weight: 900;
 }
 
 h5 {
-    font-family: 'Montserrat', sans-serif;
     font-size: 1.4rem;
-    line-height: 1.5;
     font-weight: 400;
 }
 
@@ -49,19 +44,11 @@ h1.d-block {
     transform: rotate(25deg);
 }
 
-#tech-crunch {
-    max-height: 50px;
-}
-
 #tnw {
     max-height: 100px;
 }
 
-#bizinsider {
-    max-height: 50px;
-}
-
-#mashable {
+#bizinsider, #mashable, #tech-crunch{
     max-height: 50px;
 }
 
@@ -75,19 +62,12 @@ h1.d-block {
     overflow: hidden;
 }
 
-.navbar {
-    padding: 0 0 0 0;
-}
-
 .navbar-brand {
     font-family: 'Ubuntu', sans-serif;
     font-size: 3rem;
-    line-height: 1.5
-    font-weight: 400;
 }
 
 .nav-item {
-    font-family: 'Montserrat', sans-serif;
     font-size: 1.2rem;
     font-weight: 500;
 }
@@ -105,9 +85,7 @@ h1.d-block {
 }
 
 .card-header {
-    font-family: 'Montserrat', sans-serif;
     font-size: 2rem;
-    line-height: 1.5;
     font-weight: 900;
 }
 
@@ -120,6 +98,6 @@ h1.d-block {
 }
 
 .benefits-icon {
-    font-size:3rem;
+    font-size: 3rem;
     color: #FF4161;
 }
