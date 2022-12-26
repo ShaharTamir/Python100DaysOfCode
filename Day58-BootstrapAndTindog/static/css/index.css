@@ -1,0 +1,83 @@
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem;
+    line-height: 1.5;
+    font-weight: 900;
+}
+
+h5 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+img.d-block {
+    width: 150px;
+    height: 150px;
+}
+
+#top-headline {
+    max-height: 600px;
+    overflow: hidden;
+
+}
+
+#top-iphone-image {
+    height: 600px;
+    transform: rotate(25deg);
+}
+
+#tech-crunch {
+    height: 50px;
+    width: 250px;
+}
+
+#tnw {
+    height: 100px;
+    width: 200px;
+}
+
+#bizinsider {
+    height: 50px;
+    width: 300px;
+}
+
+#mashable {
+    height: 50px;
+    width: 300px;
+}
+
+.container-fluid {
+    padding: 3% 15%;
+}
+
+.navbar-brand {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 3rem;
+    line-height: 1.5
+    font-weight: 400;
+}
+.carousel-inner {
+    padding: 0% 5%;
+}
+
+.carousel-item {
+    color: white;
+}
+
+.card-header {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    line-height: 1.5;
+    font-weight: 900;
+}
+
