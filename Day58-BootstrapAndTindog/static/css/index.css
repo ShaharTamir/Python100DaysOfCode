@@ -13,6 +13,13 @@ h1 {
     font-weight: 900;
 }
 
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    font-weight: 900;
+}
+
 h5 {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.4rem;
@@ -28,7 +35,6 @@ img.d-block {
 #top-headline {
     max-height: 600px;
     overflow: hidden;
-
 }
 
 #top-iphone-image {
@@ -81,3 +87,15 @@ img.d-block {
     font-weight: 900;
 }
 
+.card-borderless {
+    border-style: none;
+}
+
+.icon {
+    padding: 1%;
+}
+
+.benefits-icon {
+    font-size:3rem;
+    color: #FF4161;
+}
