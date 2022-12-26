@@ -11,7 +11,8 @@ def home_page():
 
     blog = [
         BlogPost("Hello", "My pleasure", "content content"),
-        BlogPost("Hello2", "My pleasure2", "content content")
+        BlogPost("Hello2", "My pleasure2", "content content"),
+        BlogPost("Hello3", "My pleasure3", "content content")
     ]
 
     return render_template("index.html", blog_posts=blog, num_posts=len(blog), year=year)
