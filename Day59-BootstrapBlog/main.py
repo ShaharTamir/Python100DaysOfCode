@@ -1,6 +1,8 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, url_for
 from datetime import datetime
 import requests
+import smtplib
+import os
 
 """
 
@@ -36,7 +38,8 @@ COPY THIS TO https://www.npoint.io/docs/
 ]
 """
 
-
+MY_EMAIL = "shahar1360@gmail.com"
+APP_PASSWORD = os.environ.get("PY_GMAIL_PASS") # TODO: To create a new one - look for סיסמאות לאפליקציות in google account settings.
 
 app = Flask(__name__)
 year = datetime.now().year
@@ -58,8 +61,17 @@ def about():
     return render_template("about.html")
 
 
-@app.route("/contact")
+@app.route("/contact", methods=["GET", "POST"])
 def contact():
+    if request.method == "POST":
+        form_data = request.form
+        with smtplib.SMTP("smtp.gmail.com") as email_connection:
+            email_connection.starttls()
+            email_connection.login(user=MY_EMAIL, password=APP_PASSWORD)
+            msg = f"From: {MY_EMAIL}\nTo: {MY_EMAIL}\nSubject: Message from blog user\n\n"
+            msg += f"{form_data['username']}\n{form_data['user-email']}\n{form_data['user-phone']}\n" \
+                f"{form_data['user-msg']}\n"
+            email_connection.sendmail(MY_EMAIL, MY_EMAIL, msg=msg)
     return render_template("contact.html")
 
 
