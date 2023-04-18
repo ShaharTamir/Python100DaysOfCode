@@ -13,4 +13,7 @@
 **/spanish_freq_list.json
 **/TargetPrices.txt
 **/URLs.txt
+**.toml
+**.lock
+**.db
 
