@@ -104,14 +104,16 @@ def select(movie_title):
 @app.route("/add_selected/<int:movie_id>")
 def add_selected(movie_id):
     global search_results
+    default_img_url = "https://www.shortlist.com/media/images/2019/05/the-30-coolest-alternative-movie-posters-ever-2-1556670563-K61a-column-width-inline.jpg"
     images_url = "https://image.tmdb.org/t/p/w500"
     movie = [i for i in search_results if i["id"] == movie_id][0]
+
     new_movie = Movie(
         title=movie["original_title"],
         year=movie["release_date"][0:4],
         description=movie["overview"],
         rating=0.0,
-        img_url=images_url + movie["poster_path"]
+        img_url=images_url + movie["poster_path"] if movie["poster_path"] is not None else default_img_url
     )
     db.session.add(new_movie)
     db.session.commit()
