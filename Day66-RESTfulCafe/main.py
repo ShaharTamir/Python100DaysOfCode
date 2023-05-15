@@ -50,7 +50,6 @@ def get_all_cafes():
 def search_cafe(loc):
     loc = loc.title()
     search_results = Cafe.query.filter(Cafe.location.startswith(loc)).all()
-    print(search_results)
     if not search_results:
         return jsonify(error={"Not Found": "Sorry, we don't have a cafe at that location."})
     return jsonify(all_cafes=[cafe.to_dict() for cafe in search_results])
